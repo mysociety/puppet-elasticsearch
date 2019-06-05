@@ -11,7 +11,7 @@ class elasticsearch::config (
   String $cluster_name            = $elasticsearch::cluster_name,
   String $node_name               = $elasticsearch::node_name,
   String $heap_size               = $elasticsearch::heap_size,
-  String $max_locaked_memory      = $elasticsearch::max_locked_memory,
+  String $max_locked_memory       = $elasticsearch::max_locked_memory,
   String $bootstrap_mlockall      = $elasticsearch::bootstrap_mlockall,
   String $http_max_content_length = $elasticsearch::http_max_content_length,
   Integer $number_of_shards       = $elasticsearch::number_of_shards,
