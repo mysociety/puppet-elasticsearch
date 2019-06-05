@@ -8,6 +8,8 @@
 #
 class elasticsearch::config (
   Enum['0.90', '1'] $version      = $elasticsearch::version,
+  String $cluster_name            = $elasticsearch::cluster_name,
+  String $node_name               = $elasticsearch::node_name,
   String $heap_size               = $elasticsearch::heap_size,
   String $max_locaked_memory      = $elasticsearch::max_locked_memory,
   String $bootstrap_mlockall      = $elasticsearch::bootstrap_mlockall,

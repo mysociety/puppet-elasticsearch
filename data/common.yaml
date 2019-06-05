@@ -1,5 +1,7 @@
 ---
 elasticsearch::version: '0.90'
+elasticsearch::cluster_name: elasticsearch
+elasticsearch::node_name: "%{facts.networking.hostname}"
 elasticsearch::heap_size: '2g'
 elasticsearch::max_locked_memory: 'unlimited'
 elasticsearch::bootstrap_mlockall: 'true'

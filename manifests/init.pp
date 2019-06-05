@@ -1,11 +1,42 @@
-# @summary A short summary of the purpose of this class
 #
-# A description of what this class does
+# @summary Entry point for the mySociety Elasticsearch module
+#
+# This module installs and manages Elasticsearch in a very simple manner.
+#
+# @param version
+#    Version to install
+#
+# @param cluster_name
+#    Name for the cluster
+#
+# @param node_name
+#    Node name
+#
+# @param heap_size
+#    Value for `ES_HEAP_SIZE`
+#
+# @param max_locked_memory
+#    Value for `ES_MAX_LOCKED_MEMORY`
+#
+# @param bootstrap_mlockall
+#    Control swap behaviour of the JVM
+#
+# @param http_max_content_length
+#    Set max content length for HTTP traffic
+#
+# @param number_of_shards
+#    How many shards
+#
+# @param number_of_replicas
+#    How many replicas
 #
 # @example
-#   include elasticsearch
+#   class { 'elasticsearch': }
+#
 class elasticsearch (
   Enum['0.90', '1'] $version,
+  String $cluster_name,
+  String $node_name,
   String $heap_size,
   String $max_locked_memory,
   String $bootstrap_mlockall,
