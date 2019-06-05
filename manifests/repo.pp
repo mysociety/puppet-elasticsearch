@@ -17,7 +17,7 @@ class elasticsearch::repo (
 ) {
 
   case $version {
-    '0.90': {
+    default: {
       $repo_url       = 'https://packages.elastic.co/elasticsearch/0.90/debian'
       $allow_unsigned = true
     }
