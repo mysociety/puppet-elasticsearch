@@ -1,0 +1,6 @@
+---
+appveyor.yml:
+  delete: true
+
+.gitlab-ci.yml:
+  delete: true

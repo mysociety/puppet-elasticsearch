@@ -1,0 +1,8 @@
+---
+elasticsearch::version: '0.90'
+elasticsearch::heap_size: '2g'
+elasticsearch::max_locked_memory: 'unlimited'
+elasticsearch::bootstrap_mlockall: 'true'
+elasticsearch::http_max_content_length: 512mb
+elasticsearch::number_of_shards: 1
+elasticsearch::number_of_replicas: 0
