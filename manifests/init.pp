@@ -27,6 +27,9 @@
 # @param http_max_content_length
 #    Set max content length for HTTP traffic
 #
+# @param package_ensure
+#    Value of the `ensure` parameter for the package resource
+#
 # @param number_of_shards
 #    How many shards
 #
@@ -45,6 +48,7 @@ class elasticsearch (
   String $max_locked_memory,
   String $bootstrap_mlockall,
   String $http_max_content_length,
+  String $package_ensure,
   Integer $number_of_shards,
   Integer $number_of_replicas,
 ) {

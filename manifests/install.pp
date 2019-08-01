@@ -6,10 +6,12 @@
 # @example
 #   include elasticsearch::install
 #
-class elasticsearch::install {
+class elasticsearch::install (
+  String $package_ensure = $elasticsearch::package_ensure,
+) {
 
   package { 'elasticsearch':
-    ensure => 'installed',
+    ensure => $package_ensure,
   }
 
 }
