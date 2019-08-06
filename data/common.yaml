@@ -1,4 +1,5 @@
 ---
+elasticsearch::manage_repo: true
 elasticsearch::version: '0.90'
 elasticsearch::cluster_name: elasticsearch
 elasticsearch::node_name: "%{facts.networking.hostname}"

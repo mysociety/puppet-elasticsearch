@@ -3,6 +3,9 @@
 #
 # This module installs and manages Elasticsearch in a very simple manner.
 #
+# @param manage_repo
+#    Whether to manage the APT repository or not
+#
 # @param version
 #    Version to install
 #
@@ -34,6 +37,7 @@
 #   class { 'elasticsearch': }
 #
 class elasticsearch (
+  Boolean $manage_repo,
   Enum['0.90', '1'] $version,
   String $cluster_name,
   String $node_name,
@@ -45,14 +49,26 @@ class elasticsearch (
   Integer $number_of_replicas,
 ) {
 
-  class { 'elasticsearch::repo': }
-  -> class { 'elasticsearch::install': }
-  -> class { 'elasticsearch::config': }
-  ~> class { 'elasticsearch::service': }
+  if $manage_repo {
+    class { 'elasticsearch::repo': }
+    -> class { 'elasticsearch::install': }
+    -> class { 'elasticsearch::config': }
+    ~> class { 'elasticsearch::service': }
 
-  contain elasticsearch::repo
-  contain elasticsearch::install
-  contain elasticsearch::config
-  contain elasticsearch::service
+    contain elasticsearch::repo
+    contain elasticsearch::install
+    contain elasticsearch::config
+    contain elasticsearch::service
+  }
+
+  else {
+    class { 'elasticsearch::install': }
+    -> class { 'elasticsearch::config': }
+    ~> class { 'elasticsearch::service': }
+
+    contain elasticsearch::install
+    contain elasticsearch::config
+    contain elasticsearch::service
+  }
 
 }
